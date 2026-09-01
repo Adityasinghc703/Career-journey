@@ -1,0 +1,72 @@
+/* Modern Design Tokens & Glassmorphism Aesthetics */
+:root {
+  --primary: #4169e1;
+  --secondary: #7c3aed;
+  --tertiary: #0d9488;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f4f7fb;
+  color: #0f172a;
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+}
+
+/* Card Hover Elevation */
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.08);
+}
+
+/* Primary Button Styling */
+.btn-primary {
+  background-color: #4169e1;
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+.btn-primary:hover {
+  background-color: #3154be;
+  box-shadow: 0 4px 14px 0 rgba(65, 105, 225, 0.3);
+}
+
+/* Timeline Vertical Line */
+.timeline-line {
+  width: 2px;
+  background: linear-gradient(180deg, #4169e1 0%, #cbd5e1 100%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animation keyframes */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+.pulse-glow {
+  animation: pulseGlow 2s infinite ease-in-out;
+}

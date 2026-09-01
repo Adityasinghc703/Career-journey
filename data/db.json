@@ -1,0 +1,683 @@
+{
+  "activeUserId": null,
+  "users": [
+    {
+      "id": "user_aarav_01",
+      "name": "VINAY SINGH",
+      "title": "Computer Science Undergrad",
+      "email": "aarav.sharma@example.edu",
+      "password": "password123",
+      "avatar": "https://lh3.googleusercontent.com/aida-public/AB6AXuCzHKn03U-PEWUhSvlAkDFP7f5srONyuI11d-B40VX5Dmt7NYy6dJle1wY2c1GdUae8bGifVfTIMEe4yLAbTuFEaT9zNqB2VsYZL29V0DLfvOwZj4VQX7pCZIkkBXE5dUUnsdI2ZKwQv190s5mYlKwEtJbQyPny9Y4EWraqWlpHFlZ09pPlFH_ns5fKLU5nL0cRTb72UmmDVRzUnD_ein7aJONULo7V2GRXxhH0TEQZbCaXqORnPwHy-w",
+      "selectedCareerId": "devops-cloud-engineer",
+      "experienceLevel": "Entry/Student",
+      "extractedSkills": [
+        "Python",
+        "C / C++",
+        "SQL",
+        "HTML5 / CSS3",
+        "Git & GitHub",
+        "Data Structures & Algorithms",
+        "Object-Oriented Programming (OOP)",
+        "Generative AI & LLMs",
+        "Data Analysis (Pandas/NumPy)"
+      ],
+      "resumeInfo": {
+        "fileName": "Vinay_Resume.pdf",
+        "uploadDate": "2026-09-01",
+        "summary": "Candidate with verified foundational technical proficiencies in Python, C / C++, SQL, HTML5 / CSS3, Git & GitHub. Ready for targeted upskilling and career readiness acceleration.",
+        "education": "B.Tech in Computer Science & Engineering (Undergraduate) • University Madhya Pradesh CGPA: 9.00 | Expected 2029"
+      },
+      "verifiedSkills": [
+        {
+          "name": "JavaScript / ES6+",
+          "level": "Proficient",
+          "score": 92,
+          "verifiedAt": "2026-08-28"
+        },
+        {
+          "name": "React Fundamentals",
+          "level": "Advanced",
+          "score": 88,
+          "verifiedAt": "2026-08-29"
+        },
+        {
+          "name": "Tailwind CSS",
+          "level": "Advanced",
+          "score": 95,
+          "verifiedAt": "2026-08-30"
+        },
+        {
+          "name": "REST APIs & Fetch",
+          "level": "Proficient",
+          "score": 85,
+          "verifiedAt": "2026-08-31"
+        }
+      ],
+      "badges": [
+        {
+          "id": "b1",
+          "title": "DSA Star",
+          "rank": "Top 10%",
+          "icon": "workspace_premium",
+          "color": "secondary"
+        },
+        {
+          "id": "b2",
+          "title": "React Certified",
+          "rank": "Level 4",
+          "icon": "data_object",
+          "color": "tertiary"
+        },
+        {
+          "id": "b3",
+          "title": "Web Builder",
+          "rank": "Verified",
+          "icon": "verified",
+          "color": "primary"
+        }
+      ],
+      "completedMilestones": 4,
+      "totalMilestones": 6,
+      "mockInterviewScore": 8.8,
+      "assessmentAvgScore": 88,
+      "codingChallengeScore": 85,
+      "weeklyStudyHours": 0,
+      "weeklyStudyGoal": 6,
+      "completedRoadmapTasks": []
+    },
+    {
+      "id": "google_user_1788272822128",
+      "name": "Information Technology",
+      "email": "aakash.mehta@bits-pilani.ac.in",
+      "title": "Computer Science Undergraduate (Pre-Final Year)",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "college": "Indian Institute of Information Technology (IIIT)",
+      "degree": "B.Tech Computer Science & Engineering (2022-2026)",
+      "cgpa": "8.7 / 10.0",
+      "selectedCareerId": "fullstack-software-engineer",
+      "extractedSkills": [
+        "Python",
+        "C++",
+        "C",
+        "SQLite",
+        "Generative AI",
+        "Data Structures & Algorithms",
+        "Object-Oriented Programming (OOP)"
+      ],
+      "verifiedSkills": [
+        {
+          "id": "v1",
+          "name": "React.js & Component Architecture",
+          "score": 94,
+          "level": "Proficient (Level 4)",
+          "verifiedAt": "2026-08-28"
+        },
+        {
+          "id": "v2",
+          "name": "Modern JavaScript & ESNext",
+          "score": 88,
+          "level": "Proficient (Level 4)",
+          "verifiedAt": "2026-08-15"
+        },
+        {
+          "id": "v3",
+          "name": "Tailwind CSS & Responsive UI",
+          "score": 92,
+          "level": "Advanced (Level 5)",
+          "verifiedAt": "2026-08-20"
+        },
+        {
+          "id": "verified_1788272822223",
+          "name": "Frontend Mastery",
+          "score": 100,
+          "level": "Advanced (Assessment Verified)",
+          "verifiedAt": "2026-09-01"
+        }
+      ],
+      "badges": [
+        {
+          "id": "b1",
+          "title": "React Specialist",
+          "rank": "Top 5%",
+          "icon": "code",
+          "color": "primary"
+        },
+        {
+          "id": "b2",
+          "title": "DSA Problem Solver",
+          "rank": "Top 10%",
+          "icon": "terminal",
+          "color": "secondary"
+        },
+        {
+          "id": "b3",
+          "title": "Clean Coder",
+          "rank": "Certified",
+          "icon": "verified",
+          "color": "tertiary"
+        }
+      ],
+      "assessmentAvgScore": 88,
+      "mockInterviewScore": 8.5,
+      "completedMilestones": 3,
+      "totalMilestones": 6,
+      "weeklyStudyGoal": 6,
+      "weeklyStudyHours": 0,
+      "authProvider": "google",
+      "resumeInfo": {
+        "fileName": "Vinay_Resume.pdf",
+        "uploadDate": "2026-09-01",
+        "summary": "Candidate with strong hands-on foundation in Python, C++, C, SQLite. Demonstrated practical capability in building full-stack projects, solving data structure algorithms, and modern software architectures.",
+        "education": "B.Tech Computer Science & Engineering • Amity University"
+      },
+      "completedRoadmapTasks": []
+    }
+  ],
+  "user": {
+    "id": "google_user_1788272822128",
+    "name": "Information Technology",
+    "email": "aakash.mehta@bits-pilani.ac.in",
+    "title": "Computer Science Undergraduate (Pre-Final Year)",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+    "college": "Indian Institute of Information Technology (IIIT)",
+    "degree": "B.Tech Computer Science & Engineering (2022-2026)",
+    "cgpa": "8.7 / 10.0",
+    "selectedCareerId": "fullstack-software-engineer",
+    "extractedSkills": [
+      "Python",
+      "C++",
+      "C",
+      "SQLite",
+      "Generative AI",
+      "Data Structures & Algorithms",
+      "Object-Oriented Programming (OOP)"
+    ],
+    "verifiedSkills": [
+      {
+        "id": "v1",
+        "name": "React.js & Component Architecture",
+        "score": 94,
+        "level": "Proficient (Level 4)",
+        "verifiedAt": "2026-08-28"
+      },
+      {
+        "id": "v2",
+        "name": "Modern JavaScript & ESNext",
+        "score": 88,
+        "level": "Proficient (Level 4)",
+        "verifiedAt": "2026-08-15"
+      },
+      {
+        "id": "v3",
+        "name": "Tailwind CSS & Responsive UI",
+        "score": 92,
+        "level": "Advanced (Level 5)",
+        "verifiedAt": "2026-08-20"
+      },
+      {
+        "id": "verified_1788272822223",
+        "name": "Frontend Mastery",
+        "score": 100,
+        "level": "Advanced (Assessment Verified)",
+        "verifiedAt": "2026-09-01"
+      }
+    ],
+    "badges": [
+      {
+        "id": "b1",
+        "title": "React Specialist",
+        "rank": "Top 5%",
+        "icon": "code",
+        "color": "primary"
+      },
+      {
+        "id": "b2",
+        "title": "DSA Problem Solver",
+        "rank": "Top 10%",
+        "icon": "terminal",
+        "color": "secondary"
+      },
+      {
+        "id": "b3",
+        "title": "Clean Coder",
+        "rank": "Certified",
+        "icon": "verified",
+        "color": "tertiary"
+      }
+    ],
+    "assessmentAvgScore": 88,
+    "mockInterviewScore": 8.5,
+    "completedMilestones": 3,
+    "totalMilestones": 6,
+    "weeklyStudyGoal": 6,
+    "weeklyStudyHours": 0,
+    "authProvider": "google",
+    "resumeInfo": {
+      "fileName": "Vinay_Resume.pdf",
+      "uploadDate": "2026-09-01",
+      "summary": "Candidate with strong hands-on foundation in Python, C++, C, SQLite. Demonstrated practical capability in building full-stack projects, solving data structure algorithms, and modern software architectures.",
+      "education": "B.Tech Computer Science & Engineering • Amity University"
+    },
+    "completedRoadmapTasks": []
+  },
+  "assessments": [
+    {
+      "id": "ass_frontend_arch",
+      "title": "Frontend Architecture & React Patterns",
+      "category": "Frontend",
+      "difficulty": "Advanced",
+      "duration": "30 mins",
+      "questionCount": 5,
+      "description": "Test your knowledge of state management, component lifecycles, and performance optimization in React 18+.",
+      "completed": true,
+      "questions": [
+        {
+          "id": "q1",
+          "question": "When would using `useCallback` be actively detrimental to performance in React?",
+          "options": [
+            "When passed to an HTML button element with an inline handler",
+            "When passed to a memoized child component (React.memo)",
+            "When wrapping every function without passing to optimized children, adding unnecessary closure overhead",
+            "When used inside a Custom Hook"
+          ],
+          "correctIndex": 2,
+          "explanation": "useCallback has non-zero memory and compute overhead. If the child component is not wrapped in React.memo or the function isn't a dependency of an effect, useCallback costs more than re-creating a lightweight function."
+        },
+        {
+          "id": "q2",
+          "question": "How does React 18 Concurrent Mode handle high-priority UI updates vs background renders?",
+          "options": [
+            "Using web workers exclusively",
+            "Via `useTransition` and `useDeferredValue` which yield to the main thread during heavy rendering",
+            "By pausing JavaScript event loops completely",
+            "By server-side rendering all components immediately"
+          ],
+          "correctIndex": 1,
+          "explanation": "Concurrent React introduces interruptible rendering with useTransition and useDeferredValue, prioritizing urgent user inputs over non-urgent UI transitions."
+        },
+        {
+          "id": "q3",
+          "question": "What is the primary advantage of Zustand over traditional Redux without toolkit?",
+          "options": [
+            "Zustand only works on mobile",
+            "Zustand eliminates boilerplate, avoids Context provider wrappers, and allows transient updates without re-renders",
+            "Zustand requires TypeScript decorators",
+            "Zustand does not support async actions"
+          ],
+          "correctIndex": 1,
+          "explanation": "Zustand uses a hook-based pub/sub model with zero provider boilerplate, supports fine-grained selector subscriptions, and handles async cleanly."
+        },
+        {
+          "id": "q4",
+          "question": "What does TypeScript `ReturnType<T>` utility type do?",
+          "options": [
+            "Returns the number of arguments in function T",
+            "Constructs a type consisting of the return type of function T",
+            "Executes function T at compile time",
+            "Converts all properties to Readonly"
+          ],
+          "correctIndex": 1,
+          "explanation": "ReturnType<T> extracts the returned type of a function signature using type inference with `infer`."
+        },
+        {
+          "id": "q5",
+          "question": "Why should keys in React lists never be assigned as `Math.random()` or array index when items reorder?",
+          "options": [
+            "Because React throws a syntax error",
+            "Because index keys cause DOM reconciliation bugs and random keys cause total DOM unmounting/remounting on every render",
+            "Because Tailwind CSS cannot style elements with random keys",
+            "Because keys are sent to the backend server"
+          ],
+          "correctIndex": 1,
+          "explanation": "React relies on stable keys for diffing. Random keys destroy component state on each render, and indices cause state to be bound to the wrong items during insertions/deletions."
+        }
+      ],
+      "score": 20
+    },
+    {
+      "id": "ass_rest_api",
+      "title": "RESTful API Design & HTTP Protocols",
+      "category": "Backend & Networking",
+      "difficulty": "Intermediate",
+      "duration": "20 mins",
+      "questionCount": 4,
+      "description": "Evaluate your understanding of HTTP methods, idempotency, status codes, and clean REST endpoint architecture.",
+      "completed": true,
+      "score": 90,
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Which HTTP method is defined as NOT idempotent?",
+          "options": [
+            "GET",
+            "PUT",
+            "DELETE",
+            "POST"
+          ],
+          "correctIndex": 3,
+          "explanation": "POST is not idempotent because repeating the identical request typically creates duplicate resources, whereas PUT and DELETE have idempotent side-effects."
+        },
+        {
+          "id": "q2",
+          "question": "What is the most appropriate HTTP status code when a client requests a resource that exists but they lack permissions?",
+          "options": [
+            "401 Unauthorized",
+            "403 Forbidden",
+            "404 Not Found",
+            "422 Unprocessable Entity"
+          ],
+          "correctIndex": 1,
+          "explanation": "401 means unauthenticated (who are you?), while 403 Forbidden means authenticated but insufficient authorization (you are not allowed)."
+        },
+        {
+          "id": "q3",
+          "question": "What header is used in CORS preflight checks to declare allowed custom headers?",
+          "options": [
+            "Access-Control-Allow-Origin",
+            "Access-Control-Allow-Headers",
+            "Access-Control-Allow-Methods",
+            "Content-Security-Policy"
+          ],
+          "correctIndex": 1,
+          "explanation": "Access-Control-Allow-Headers specifies which HTTP headers can be used during the actual request."
+        },
+        {
+          "id": "q4",
+          "question": "What is the recommended payload format for partial updates in RESTful services?",
+          "options": [
+            "HTTP PATCH with JSON Merge Patch or JSON Patch",
+            "HTTP GET with query parameters",
+            "HTTP DELETE with body",
+            "HTTP TRACE"
+          ],
+          "correctIndex": 0,
+          "explanation": "HTTP PATCH is designed specifically for applying partial modifications to a resource."
+        }
+      ]
+    }
+  ],
+  "codingChallenges": [
+    {
+      "id": "code_two_sum",
+      "title": "Two Sum",
+      "difficulty": "Easy",
+      "successRate": "85%",
+      "topic": "Arrays & Hash Maps",
+      "status": "Solved",
+      "description": "Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target` in O(n) time.",
+      "starterCode": "function twoSum(nums, target) {\n  const map = new Map();\n  for (let i = 0; i < nums.length; i++) {\n    const complement = target - nums[i];\n    if (map.has(complement)) {\n      return [map.get(complement), i];\n    }\n    map.set(nums[i], i);\n  }\n  return [];\n}",
+      "testCases": [
+        {
+          "input": "twoSum([2, 7, 11, 15], 9)",
+          "expected": "[0,1]"
+        },
+        {
+          "input": "twoSum([3, 2, 4], 6)",
+          "expected": "[1,2]"
+        },
+        {
+          "input": "twoSum([3, 3], 6)",
+          "expected": "[0,1]"
+        }
+      ]
+    },
+    {
+      "id": "code_validate_bst",
+      "title": "Validate Binary Search Tree",
+      "difficulty": "Medium",
+      "successRate": "68%",
+      "topic": "Trees & Recursion",
+      "status": "In Progress",
+      "description": "Given the root of a binary tree, determine if it is a valid binary search tree (BST). A valid BST satisfies: Left subtrees contain keys strictly less than the node's key, and right subtrees contain keys strictly greater.",
+      "starterCode": "function isValidBST(tree) {\n  function validate(node, min, max) {\n    if (!node) return true;\n    if (min !== null && node.val <= min) return false;\n    if (max !== null && node.val >= max) return false;\n    return validate(node.left, min, node.val) && validate(node.right, node.val, max);\n  }\n  return validate(tree, null, null);\n}",
+      "testCases": [
+        {
+          "input": "isValidBST({val: 2, left: {val: 1}, right: {val: 3}})",
+          "expected": "true"
+        },
+        {
+          "input": "isValidBST({val: 5, left: {val: 1}, right: {val: 4, left: {val: 3}, right: {val: 6}}})",
+          "expected": "false"
+        }
+      ]
+    },
+    {
+      "id": "code_merge_k_lists",
+      "title": "Merge K Sorted Lists",
+      "difficulty": "Hard",
+      "successRate": "42%",
+      "topic": "Heaps & Divide and Conquer",
+      "status": "To Attempt",
+      "description": "You are given an array of `k` linked-lists `lists`, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list and return it.",
+      "starterCode": "function mergeKLists(lists) {\n  const flat = lists.flat().sort((a, b) => a - b);\n  return flat;\n}",
+      "testCases": [
+        {
+          "input": "mergeKLists([[1,4,5],[1,3,4],[2,6]])",
+          "expected": "[1,1,2,3,4,4,5,6]"
+        },
+        {
+          "input": "mergeKLists([])",
+          "expected": "[]"
+        }
+      ]
+    }
+  ],
+  "mockInterviews": [
+    {
+      "id": "mock_01",
+      "title": "Tech Screen: React & Distributed Systems",
+      "type": "Technical",
+      "date": "Recent",
+      "score": 8.8,
+      "maxScore": 10,
+      "feedback": "Strong grasp of component lifecycle, Zustand selectors, and memoization. Great verbal reasoning.",
+      "strengths": [
+        "Clean architectural thinking",
+        "Accurate use of React state primitives",
+        "Clear verbal explanations"
+      ],
+      "improvements": [
+        "Elaborate on database indexing mechanisms",
+        "Consider edge cases in concurrent requests"
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "id": "job_in_01",
+      "title": "Software Development Engineer (SDE-1) - Frontend",
+      "category": "Frontend",
+      "company": "Swiggy",
+      "location": "Bengaluru, Karnataka (Hybrid)",
+      "type": "Full-Time (Entry/Mid)",
+      "salary": "₹14,00,000 - ₹20,00,000 / yr (14-20 LPA)",
+      "minReadinessScore": 70,
+      "skillsRequired": [
+        "JavaScript",
+        "React.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "REST APIs & GraphQL"
+      ],
+      "logoColor": "bg-orange-500",
+      "description": "Build ultra-fast consumer-facing food & grocery ordering web applications with sub-second page loads."
+    },
+    {
+      "id": "job_in_02",
+      "title": "Frontend Engineering Intern",
+      "category": "Frontend",
+      "company": "Razorpay",
+      "location": "Bengaluru, Karnataka / Remote",
+      "type": "Internship (6 Months)",
+      "salary": "₹45,000 / month Stipend (PPO Available)",
+      "minReadinessScore": 60,
+      "skillsRequired": [
+        "JavaScript",
+        "React.js",
+        "HTML5 / CSS3",
+        "Git & GitHub",
+        "State Management (Redux/Zustand)"
+      ],
+      "logoColor": "bg-blue-600",
+      "description": "Join India's premier payments infrastructure team. Work on developer checkout experience and merchant dashboard.",
+      "applied": true,
+      "appliedAt": "2026-09-01T09:35:43.428Z"
+    },
+    {
+      "id": "job_in_03",
+      "title": "Full-Stack Graduate Engineer",
+      "category": "Full-Stack",
+      "company": "Cred",
+      "location": "Bengaluru, Karnataka",
+      "type": "Full-Time Entry",
+      "salary": "₹16,00,000 - ₹24,00,000 / yr (16-24 LPA)",
+      "minReadinessScore": 75,
+      "skillsRequired": [
+        "Node.js / Express",
+        "React.js",
+        "TypeScript",
+        "SQL",
+        "Redis Caching",
+        "System Design"
+      ],
+      "logoColor": "bg-black",
+      "description": "Design high-concurrency reward pipelines and sleek micro-frontend experiences for millions of members."
+    },
+    {
+      "id": "job_in_04",
+      "title": "AI / GenAI Solutions Intern",
+      "category": "AI / ML",
+      "company": "Sarvam AI",
+      "location": "Bengaluru / Remote",
+      "type": "Internship",
+      "salary": "₹50,000 / month Stipend",
+      "minReadinessScore": 65,
+      "skillsRequired": [
+        "Python",
+        "Generative AI & LLMs",
+        "FastAPI / Flask / Django",
+        "React.js",
+        "Data Structures & Algorithms"
+      ],
+      "logoColor": "bg-emerald-600",
+      "description": "Develop multilingual Indian language AI agent applications and web evaluation playgrounds."
+    },
+    {
+      "id": "job_in_05",
+      "title": "Junior Backend Developer",
+      "category": "Backend",
+      "company": "Zomato",
+      "location": "Gurugram, NCR",
+      "type": "Full-Time",
+      "salary": "₹13,00,000 - ₹18,00,000 / yr (13-18 LPA)",
+      "minReadinessScore": 70,
+      "skillsRequired": [
+        "Java",
+        "Spring Boot",
+        "SQL",
+        "Microservices",
+        "Docker",
+        "Git & GitHub"
+      ],
+      "logoColor": "bg-red-600",
+      "description": "Maintain core order-processing microservices, transactional consistency, and distributed database queries."
+    },
+    {
+      "id": "job_in_06",
+      "title": "Data Science & Analytics Intern",
+      "category": "Data Science",
+      "company": "Flipkart",
+      "location": "Bengaluru / Hyderabad",
+      "type": "Internship",
+      "salary": "₹40,000 / month Stipend",
+      "minReadinessScore": 60,
+      "skillsRequired": [
+        "Python",
+        "SQL",
+        "Data Analysis (Pandas/NumPy)",
+        "Machine Learning (Scikit-Learn)",
+        "Power BI / Tableau"
+      ],
+      "logoColor": "bg-amber-500",
+      "description": "Analyze e-commerce search logs, conversion funnels, and construct user behavior prediction models."
+    },
+    {
+      "id": "job_in_07",
+      "title": "Cloud & DevOps Associate",
+      "category": "DevOps",
+      "company": "Postman",
+      "location": "Bengaluru, Karnataka",
+      "type": "Full-Time",
+      "salary": "₹15,00,000 - ₹22,00,000 / yr (15-22 LPA)",
+      "minReadinessScore": 70,
+      "skillsRequired": [
+        "AWS (Amazon Web Services)",
+        "Docker",
+        "Kubernetes",
+        "CI / CD Pipelines",
+        "Linux & Bash"
+      ],
+      "logoColor": "bg-orange-600",
+      "description": "Build robust infrastructure-as-code and automated deployment pipelines supporting 30M+ developers."
+    }
+  ],
+  "applications": [
+    {
+      "id": "app_1788282825448",
+      "jobId": "job_in_04",
+      "jobTitle": "AI / GenAI Solutions Intern",
+      "company": "Sarvam AI",
+      "location": "Bengaluru / Remote",
+      "salary": "₹50,000 / month Stipend",
+      "appliedAt": "2026-09-01T17:13:45.448Z",
+      "status": "Submitted & Under Review",
+      "userNotes": "Application submitted via CareerJourney AI Copilot."
+    },
+    {
+      "id": "app_1788282772880",
+      "jobId": "job_in_01",
+      "jobTitle": "Software Development Engineer (SDE-1) - Frontend",
+      "company": "Swiggy",
+      "location": "Bengaluru, Karnataka (Hybrid)",
+      "salary": "₹14,00,000 - ₹20,00,000 / yr (14-20 LPA)",
+      "appliedAt": "2026-09-01T17:12:52.880Z",
+      "status": "Submitted & Under Review",
+      "userNotes": "Application submitted via CareerJourney AI Copilot."
+    },
+    {
+      "id": "app_1788282124784",
+      "jobId": "job_in_03",
+      "jobTitle": "Full-Stack Graduate Engineer",
+      "company": "Cred",
+      "location": "Bengaluru, Karnataka",
+      "salary": "₹16,00,000 - ₹24,00,000 / yr (16-24 LPA)",
+      "appliedAt": "2026-09-01T17:02:04.784Z",
+      "status": "Submitted & Under Review",
+      "userNotes": "Application submitted via CareerJourney AI Copilot."
+    },
+    {
+      "id": "app_1788277414722",
+      "jobId": "job_in_02",
+      "jobTitle": "Frontend Engineering Intern",
+      "company": "Razorpay",
+      "location": "Bengaluru, Karnataka / Remote",
+      "salary": "₹45,000 / month Stipend (PPO Available)",
+      "appliedAt": "2026-09-01T15:43:34.722Z",
+      "status": "Submitted & Under Review",
+      "userNotes": "Application submitted via CareerJourney AI Copilot."
+    },
+    {
+      "id": "app_1788272822254",
+      "jobId": "job_razorpay_intern",
+      "jobTitle": "Frontend Engineering Intern",
+      "company": "Razorpay",
+      "location": "Bengaluru, Karnataka / Remote",
+      "salary": "₹45,000 / month Stipend (PPO Available)",
+      "applyUrl": "https://jobs.lever.co/razorpay",
+      "appliedAt": "2026-09-01T14:27:02.254Z",
+      "status": "Submitted & Under Review",
+      "userNotes": "Excited about checkout engineering!",
+      "directRedirectUrl": "https://jobs.lever.co/razorpay"
+    }
+  ]
+}
