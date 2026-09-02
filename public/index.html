@@ -79,30 +79,226 @@
 
     <!-- Header Actions & User Profile -->
     <div class="flex items-center gap-3">
-      <button onclick="openUploadModal()" class="btn-primary text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-1.5 shadow-sm">
+      <button id="header-upload-btn" onclick="openUploadModal()" class="btn-primary text-xs font-bold px-3.5 py-2 rounded-xl hidden items-center gap-1.5 shadow-sm">
         <span class="material-symbols-outlined text-[18px]">upload_file</span>
         <span class="hidden sm:inline">Upload Resume</span>
       </button>
 
-      <div id="header-readiness-chip" class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-fixed text-primary font-bold text-xs border border-primary-fixed-dim">
+      <div id="header-readiness-chip" class="hidden sm:hidden items-center gap-2 px-3 py-1.5 rounded-full bg-primary-fixed text-primary font-bold text-xs border border-primary-fixed-dim">
         <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-        <span>Readiness: 78%</span>
+        <span id="header-readiness-text">Readiness: 78%</span>
       </div>
 
       <div class="flex items-center gap-2">
-        <button id="header-login-btn" onclick="openAuthModal()" class="px-3.5 py-1.5 rounded-xl border border-outline-variant/60 text-xs font-bold text-on-surface hover:bg-surface-container-low transition-all flex items-center gap-1.5">
+        <button id="header-login-btn" onclick="showAuthLanding()" class="px-3.5 py-1.5 rounded-xl border border-outline-variant/60 text-xs font-bold text-on-surface hover:bg-surface-container-low transition-all flex items-center gap-1.5">
           <span class="material-symbols-outlined text-[16px] text-primary">account_circle</span>
-          <span>Login / Register</span>
+          <span>Sign In / Register</span>
         </button>
-        <button onclick="logout()" id="header-logout-btn" title="Logout / Switch User" class="p-1.5 rounded-xl text-on-surface-variant hover:text-red-600 hover:bg-red-50 transition-all">
+        <button id="header-logout-btn" onclick="logout()" title="Logout" class="hidden p-1.5 rounded-xl text-on-surface-variant hover:text-red-600 hover:bg-red-50 transition-all">
           <span class="material-symbols-outlined text-lg">logout</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Main Platform Layout -->
-  <div class="flex-1 flex overflow-hidden">
+  <!-- ======================================================== -->
+  <!-- LANDING & AUTHENTICATION VIEW (FIRST SCREEN ON LOAD) -->
+  <!-- ======================================================== -->
+  <section id="landing-auth-view" class="flex-1 flex flex-col justify-center items-center py-8 px-4 md:px-8 max-w-7xl mx-auto w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
+
+      <!-- Left Column: Hero & Product Showcase -->
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-fixed text-primary font-black text-xs uppercase tracking-wider border border-primary-fixed-dim shadow-xs">
+          <span class="material-symbols-outlined text-sm">neurology</span>
+          <span>AI-Powered Career Copilot for Students</span>
+        </div>
+
+        <div class="space-y-3">
+          <h1 class="text-3xl md:text-5xl font-extrabold text-on-surface tracking-tight leading-tight">
+            Bridge the Gap from <br>
+            <span class="bg-gradient-to-r from-primary via-secondary to-indigo-600 bg-clip-text text-transparent">College to Dream Tech Job</span>
+          </h1>
+          <p class="text-sm md:text-base text-on-surface-variant leading-relaxed max-w-xl">
+            Analyze your resume skill gaps in real time, follow dynamic milestone roadmaps, take verified coding assessments, and get matched to live hiring opportunities.
+          </p>
+        </div>
+
+        <!-- 4 Key Feature Pillars -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+          <div class="p-3.5 rounded-2xl bg-white border border-black/5 shadow-xs flex items-start gap-3">
+            <div class="w-9 h-9 rounded-xl bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-xl">radar</span>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-on-surface">Skill Gap Analysis</h4>
+              <p class="text-[11px] text-on-surface-variant leading-tight mt-0.5">Resume parser matches against 100+ industry tech benchmarks.</p>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-white border border-black/5 shadow-xs flex items-start gap-3">
+            <div class="w-9 h-9 rounded-xl bg-secondary-fixed text-secondary flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-xl">alt_route</span>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-on-surface">Personal Roadmap</h4>
+              <p class="text-[11px] text-on-surface-variant leading-tight mt-0.5">4-Phase structured curriculum tailored to your career goal.</p>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-white border border-black/5 shadow-xs flex items-start gap-3">
+            <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-xl">terminal</span>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-on-surface">Coding & AI Interviews</h4>
+              <p class="text-[11px] text-on-surface-variant leading-tight mt-0.5">In-memory code sandbox and STAR voice mock interviews.</p>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-white border border-black/5 shadow-xs flex items-start gap-3">
+            <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-xl">verified</span>
+            </div>
+            <div>
+              <h4 class="text-xs font-bold text-on-surface">Verified Readiness</h4>
+              <p class="text-[11px] text-on-surface-variant leading-tight mt-0.5">Certified badges and 1-click apply to live tech openings.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Platform Stats -->
+        <div class="flex items-center gap-6 pt-2 border-t border-black/5">
+          <div>
+            <span class="text-lg font-extrabold text-on-surface">10+</span>
+            <span class="text-[11px] text-on-surface-variant block font-medium">Tech Career Paths</span>
+          </div>
+          <div class="h-8 w-px bg-black/5"></div>
+          <div>
+            <span class="text-lg font-extrabold text-primary">100+</span>
+            <span class="text-[11px] text-on-surface-variant block font-medium">Skill Dictionary</span>
+          </div>
+          <div class="h-8 w-px bg-black/5"></div>
+          <div>
+            <span class="text-lg font-extrabold text-emerald-600">98%</span>
+            <span class="text-[11px] text-on-surface-variant block font-medium">Match Accuracy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Login & Register Card -->
+      <div class="lg:col-span-5">
+        <div class="bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-black/5 space-y-5">
+          
+          <!-- Auth Tabs -->
+          <div class="flex rounded-2xl bg-surface-container-low p-1 border border-black/5">
+            <button id="auth-tab-login" onclick="switchAuthTab('login')" class="flex-1 py-2 rounded-xl text-xs font-bold transition-all bg-white text-primary shadow-xs">
+              Sign In
+            </button>
+            <button id="auth-tab-register" onclick="switchAuthTab('register')" class="flex-1 py-2 rounded-xl text-xs font-bold transition-all text-on-surface-variant hover:text-on-surface">
+              Create Account
+            </button>
+          </div>
+
+          <!-- Sign In Form -->
+          <form id="form-landing-login" onsubmit="handleLandingLogin(event)" class="space-y-4">
+            <div>
+              <label class="text-[11px] font-bold text-on-surface-variant block mb-1.5">College or Personal Email</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-2.5 text-lg text-outline">mail</span>
+                <input type="email" id="landing-login-email" required value="rahul.sharma@college.edu" placeholder="student@college.edu" class="w-full pl-10 pr-3 py-2.5 rounded-xl border border-outline-variant/60 text-xs focus:outline-primary bg-surface text-on-surface font-medium">
+              </div>
+            </div>
+
+            <div>
+              <label class="text-[11px] font-bold text-on-surface-variant block mb-1.5">Password</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-2.5 text-lg text-outline">lock</span>
+                <input type="password" id="landing-login-password" required value="password123" placeholder="••••••••" class="w-full pl-10 pr-3 py-2.5 rounded-xl border border-outline-variant/60 text-xs focus:outline-primary bg-surface text-on-surface font-medium">
+              </div>
+            </div>
+
+            <button type="submit" class="w-full py-3 rounded-xl bg-primary text-white text-xs font-extrabold hover:bg-primary-container transition-all shadow-md shadow-primary/20 flex items-center justify-center gap-2">
+              <span>Sign In to Platform</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </form>
+
+          <!-- Register Form -->
+          <form id="form-landing-register" onsubmit="handleLandingRegister(event)" class="space-y-3.5 hidden">
+            <div>
+              <label class="text-[11px] font-bold text-on-surface-variant block mb-1">Full Name</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-2.5 text-lg text-outline">person</span>
+                <input type="text" id="landing-reg-name" required placeholder="e.g. Rahul Sharma" class="w-full pl-10 pr-3 py-2.5 rounded-xl border border-outline-variant/60 text-xs focus:outline-primary bg-surface text-on-surface font-medium">
+              </div>
+            </div>
+
+            <div>
+              <label class="text-[11px] font-bold text-on-surface-variant block mb-1">College / University & Year</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-2.5 text-lg text-outline">school</span>
+                <input type="text" id="landing-reg-college" placeholder="e.g. IIIT Bengaluru • B.Tech 2026" class="w-full pl-10 pr-3 py-2.5 rounded-xl border border-outline-variant/60 text-xs focus:outline-primary bg-surface text-on-surface font-medium">
+              </div>
+            </div>
+
+            <div>
+              <label class="text-[11px] font-bold text-on-surface-variant block mb-1">Email Address</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-2.5 text-lg text-outline">mail</span>
+                <input type="email" id="landing-reg-email" required placeholder="name@college.edu" class="w-full pl-10 pr-3 py-2.5 rounded-xl border border-outline-variant/60 text-xs focus:outline-primary bg-surface text-on-surface font-medium">
+              </div>
+            </div>
+
+            <div>
+              <label class="text-[11px] font-bold text-on-surface-variant block mb-1">Password</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3.5 top-2.5 text-lg text-outline">lock</span>
+                <input type="password" id="landing-reg-password" required placeholder="Create a secure password" class="w-full pl-10 pr-3 py-2.5 rounded-xl border border-outline-variant/60 text-xs focus:outline-primary bg-surface text-on-surface font-medium">
+              </div>
+            </div>
+
+            <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-white text-xs font-extrabold hover:opacity-95 transition-all shadow-md shadow-primary/20 flex items-center justify-center gap-2">
+              <span>Create Free Account</span>
+              <span class="material-symbols-outlined text-sm">rocket_launch</span>
+            </button>
+          </form>
+
+          <!-- Divider -->
+          <div class="relative flex items-center justify-center">
+            <div class="border-t border-black/5 w-full"></div>
+            <span class="bg-white px-3 text-[10px] font-bold uppercase tracking-wider text-outline shrink-0">or quick access</span>
+            <div class="border-t border-black/5 w-full"></div>
+          </div>
+
+          <!-- Quick Actions: 1-Click Demo & Google -->
+          <div class="space-y-2.5">
+            <button type="button" onclick="loginAsDemoUser()" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-primary-fixed to-secondary-fixed border border-primary-fixed-dim text-on-primary-fixed text-xs font-extrabold hover:brightness-95 transition-all flex items-center justify-center gap-2 shadow-xs">
+              <span class="material-symbols-outlined text-[17px] text-primary">bolt</span>
+              <span>Instant Demo Login (Rahul Sharma - IIIT)</span>
+            </button>
+
+            <button type="button" onclick="loginWithGoogle()" class="w-full py-2.5 px-4 rounded-xl border border-outline-variant/70 text-xs font-bold text-on-surface hover:bg-surface-container-low transition-all flex items-center justify-center gap-2.5 shadow-xs">
+              <svg class="w-4 h-4" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+              <span>Continue with Google</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- MAIN PLATFORM LAYOUT (VISIBLE AFTER LOGIN) -->
+  <!-- ======================================================== -->
+  <div id="main-platform-layout" class="flex-1 hidden overflow-hidden">
 
     <!-- Left Navigation Sidebar -->
     <aside class="w-64 bg-white border-r border-black/5 flex-col justify-between hidden md:flex shrink-0 p-4 space-y-4">
@@ -329,70 +525,361 @@
       </section>
 
       <!-- ======================================================== -->
-      <!-- TAB 4: ASSESSMENTS & PRACTICE -->
+      <!-- TAB 4: ASSESSMENTS & PRACTICE (DYNAMIC & SCALABLE) -->
       <!-- ======================================================== -->
       <section id="view-assessments" class="view-section hidden space-y-6">
-        <!-- Verified Badges Row -->
-        <div class="glass-panel p-6 rounded-3xl space-y-3">
-          <span class="text-xs font-extrabold uppercase text-outline tracking-wider">Your Verified Skill Badges:</span>
-          <div id="assess-badges-row" class="flex gap-3 overflow-x-auto pb-1"></div>
-        </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <!-- Technical Assessments -->
-          <div class="glass-panel p-6 rounded-3xl space-y-4">
-            <h3 class="text-sm font-bold text-on-surface">Technical Assessments</h3>
-            <div id="assessments-list" class="space-y-3"></div>
+        <!-- SUB-VIEW 1: ASSESSMENT SETUP & PRACTICE HUB -->
+        <div id="assess-setup-subview" class="space-y-6">
+
+          <!-- Top Banner & Quick Controls -->
+          <div class="glass-panel p-6 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="space-y-1">
+              <span class="text-[10px] uppercase font-black text-primary tracking-wider flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm">psychology</span>
+                <span>Personalized Technical Assessments</span>
+              </span>
+              <h2 class="text-xl font-extrabold text-on-surface">Targeted Practice & Certification Arena</h2>
+              <p class="text-xs text-on-surface-variant max-w-xl">
+                Choose your target tech role, proficiency tier, and mode. The engine balances live coding, scenario debugging, and core technical theory questions.
+              </p>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button onclick="openAdminQuestionStudio()" class="px-3.5 py-2 rounded-xl bg-surface-container border border-outline-variant/60 text-xs font-bold text-on-surface hover:bg-surface-container-high transition-all flex items-center gap-1.5 shadow-xs">
+                <span class="material-symbols-outlined text-sm text-secondary">admin_panel_settings</span>
+                <span>Admin Question Studio</span>
+              </button>
+              <button onclick="openPastAssessmentsModal()" class="px-3.5 py-2 rounded-xl bg-surface-container border border-outline-variant/60 text-xs font-bold text-on-surface hover:bg-surface-container-high transition-all flex items-center gap-1.5 shadow-xs">
+                <span class="material-symbols-outlined text-sm text-primary">history</span>
+                <span>My History</span>
+              </button>
+            </div>
           </div>
 
-          <!-- AI Mock Interviews Studio Launch Card -->
-          <div class="glass-panel p-6 rounded-3xl space-y-4 flex flex-col justify-between">
-            <div class="space-y-3">
-              <div class="flex justify-between items-center">
-                <h3 class="text-sm font-bold text-on-surface">AI Mock Interview Studio</h3>
-                <span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-secondary text-[10px] font-extrabold">Speech-to-Text</span>
-              </div>
-              <p class="text-xs text-on-surface-variant leading-relaxed">
-                Practice technical architecture, STAR behavioral, and system design questions. Dictate with your microphone in real time and receive instant AI Rubric feedback.
-              </p>
+          <!-- Assessment Configuration Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-              <div id="interview-history-list" class="space-y-2"></div>
+            <!-- Left 8 Cols: Role, Level, Mode, Topics Selection -->
+            <div class="lg:col-span-8 space-y-5 glass-panel p-6 rounded-3xl">
+
+              <!-- 1. Select Target Role -->
+              <div class="space-y-2.5">
+                <label class="text-xs font-extrabold text-on-surface flex items-center justify-between">
+                  <span>1. Choose Target Role</span>
+                  <span id="cfg-role-selected-label" class="text-[11px] font-bold text-primary">Frontend Developer</span>
+                </label>
+                <div id="assess-roles-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+
+              <!-- 2. Select Experience Level -->
+              <div class="space-y-2">
+                <label class="text-xs font-extrabold text-on-surface">2. Select Experience Level</label>
+                <div class="grid grid-cols-3 gap-2.5">
+                  <button type="button" onclick="selectAssessLevel('beginner')" data-level="beginner" class="assess-level-btn p-3 rounded-2xl border border-outline-variant/60 bg-surface text-left transition-all hover:border-primary">
+                    <span class="text-xs font-extrabold block text-on-surface">Beginner</span>
+                    <span class="text-[10px] text-on-surface-variant">Core fundamentals (70% Beg)</span>
+                  </button>
+                  <button type="button" onclick="selectAssessLevel('intermediate')" data-level="intermediate" class="assess-level-btn p-3 rounded-2xl border-2 border-primary bg-primary-fixed/20 text-left transition-all shadow-xs">
+                    <span class="text-xs font-extrabold block text-primary">Intermediate</span>
+                    <span class="text-[10px] text-on-surface-variant">Industry standard (60% Int)</span>
+                  </button>
+                  <button type="button" onclick="selectAssessLevel('advanced')" data-level="advanced" class="assess-level-btn p-3 rounded-2xl border border-outline-variant/60 bg-surface text-left transition-all hover:border-primary">
+                    <span class="text-xs font-extrabold block text-on-surface">Advanced</span>
+                    <span class="text-[10px] text-on-surface-variant">Architecture & Challenges</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- 3. Assessment Mode -->
+              <div class="space-y-2">
+                <label class="text-xs font-extrabold text-on-surface">3. Choose Assessment Mode</label>
+                <div class="grid grid-cols-3 gap-2.5">
+                  <button type="button" onclick="selectAssessMode('practice')" data-mode="practice" class="assess-mode-btn p-3 rounded-2xl border-2 border-primary bg-primary-fixed/20 text-left transition-all shadow-xs">
+                    <span class="text-xs font-extrabold block text-primary">Practice Mode</span>
+                    <span class="text-[10px] text-on-surface-variant">Untimed, explore solutions</span>
+                  </button>
+                  <button type="button" onclick="selectAssessMode('timed_assessment')" data-mode="timed_assessment" class="assess-mode-btn p-3 rounded-2xl border border-outline-variant/60 bg-surface text-left transition-all hover:border-primary">
+                    <span class="text-xs font-extrabold block text-on-surface">Timed Exam</span>
+                    <span class="text-[10px] text-on-surface-variant">Certification & strict timer</span>
+                  </button>
+                  <button type="button" onclick="selectAssessMode('topic_practice')" data-mode="topic_practice" class="assess-mode-btn p-3 rounded-2xl border border-outline-variant/60 bg-surface text-left transition-all hover:border-primary">
+                    <span class="text-xs font-extrabold block text-on-surface">Topic Drill</span>
+                    <span class="text-[10px] text-on-surface-variant">Focus on chosen skills</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- 4. Topic Drill Filters (Multi-select) -->
+              <div id="assess-topics-filter-group" class="space-y-2 hidden">
+                <label class="text-xs font-extrabold text-on-surface flex items-center justify-between">
+                  <span>Filter by Specific Topics:</span>
+                  <span class="text-[10px] text-outline font-semibold">Select 1 or more</span>
+                </label>
+                <div id="assess-topics-chips" class="flex flex-wrap gap-1.5 max-h-36 overflow-y-auto p-1">
+                  <!-- Chips injected via JS -->
+                </div>
+              </div>
+
             </div>
 
-            <button onclick="openInterviewModal()" class="w-full py-3 rounded-2xl bg-gradient-to-r from-primary to-secondary text-white text-xs font-bold hover:opacity-95 transition-all shadow-md shadow-primary/20 flex items-center justify-center gap-2">
-              <span class="material-symbols-outlined text-base">mic</span> Launch AI Mock Interview Studio
+            <!-- Right 4 Cols: Summary, Question Count & Start Action -->
+            <div class="lg:col-span-4 space-y-4">
+              <div class="glass-panel p-6 rounded-3xl space-y-4">
+                <h3 class="text-sm font-bold text-on-surface">Assessment Settings</h3>
+
+                <div class="space-y-3 text-xs">
+                  <div>
+                    <label class="text-[11px] font-bold text-on-surface-variant block mb-1">Number of Questions:</label>
+                    <div class="grid grid-cols-3 gap-2">
+                      <button type="button" onclick="selectQuestionCount(10)" data-count="10" class="assess-count-btn py-2 rounded-xl border border-outline-variant/60 font-bold text-center bg-surface">10 Qs</button>
+                      <button type="button" onclick="selectQuestionCount(20)" data-count="20" class="assess-count-btn py-2 rounded-xl border-2 border-primary font-bold text-center bg-primary-fixed/30 text-primary">20 Qs</button>
+                      <button type="button" onclick="selectQuestionCount(30)" data-count="30" class="assess-count-btn py-2 rounded-xl border border-outline-variant/60 font-bold text-center bg-surface">30 Qs</button>
+                    </div>
+                  </div>
+
+                  <div id="assess-timer-custom-group" class="hidden">
+                    <label class="text-[11px] font-bold text-on-surface-variant block mb-1">Time Limit (Minutes):</label>
+                    <select id="assess-custom-minutes" class="w-full px-3 py-2 rounded-xl border border-outline-variant/60 text-xs font-bold bg-surface focus:outline-primary">
+                      <option value="15">15 Minutes (Fast Pace)</option>
+                      <option value="30" selected>30 Minutes (Standard)</option>
+                      <option value="45">45 Minutes (Extended)</option>
+                      <option value="60">60 Minutes (Full Exam)</option>
+                    </select>
+                  </div>
+
+                  <!-- Blueprint Distribution Card -->
+                  <div class="p-3.5 rounded-2xl bg-surface-container-low border border-black/5 space-y-2">
+                    <span class="text-[10px] font-black uppercase text-outline tracking-wider">Estimated Blueprint:</span>
+                    <div class="space-y-1 text-[11px] text-on-surface-variant">
+                      <div class="flex justify-between">
+                        <span>💻 Live Coding Sandboxes</span>
+                        <span class="font-bold text-on-surface">40%</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>📖 Technical Theory (MCQ/SA)</span>
+                        <span class="font-bold text-on-surface">40%</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span>🔍 Scenario Debugging</span>
+                        <span class="font-bold text-on-surface">20%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <button id="btn-start-assessment" onclick="startNewAssessment()" class="w-full py-3.5 rounded-2xl bg-primary text-white text-xs font-extrabold hover:bg-primary-container transition-all shadow-md shadow-primary/20 flex items-center justify-center gap-2">
+                  <span class="material-symbols-outlined text-base">rocket_launch</span>
+                  <span>Start Assessment</span>
+                </button>
+              </div>
+
+              <!-- Quick AI Interview Teaser -->
+              <div class="p-4 rounded-3xl bg-gradient-to-br from-secondary-fixed/50 to-primary-fixed/40 border border-secondary-fixed text-xs space-y-2">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-secondary flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm">mic</span> Mock Interview
+                  </span>
+                  <span class="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-secondary text-white">Voice AI</span>
+                </div>
+                <p class="text-[11px] text-on-surface-variant">Practice voice STAR architecture interviews with real-time AI rubric feedback.</p>
+                <button onclick="openInterviewModal()" class="w-full py-1.5 rounded-xl bg-white border border-secondary/30 text-secondary font-bold text-xs hover:bg-secondary-fixed transition-all">
+                  Launch Interview Studio
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Verified Badges Row -->
+          <div class="glass-panel p-6 rounded-3xl space-y-3">
+            <span class="text-xs font-extrabold uppercase text-outline tracking-wider">Your Verified Skill Badges:</span>
+            <div id="assess-badges-row" class="flex gap-3 overflow-x-auto pb-1"></div>
+          </div>
+
+        </div>
+
+        <!-- SUB-VIEW 2: ACTIVE LIVE ASSESSMENT TAKING ARENA -->
+        <div id="assess-active-subview" class="space-y-4 hidden">
+
+          <!-- Sticky Exam Status Header -->
+          <div class="glass-panel p-4 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4 sticky top-16 z-30 shadow-sm">
+            <div class="flex items-center gap-3">
+              <button onclick="confirmExitAssessment()" class="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-all" title="Exit Assessment">
+                <span class="material-symbols-outlined">arrow_back</span>
+              </button>
+              <div>
+                <span id="active-exam-role-badge" class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-primary-fixed text-primary">Frontend Developer</span>
+                <h3 id="active-exam-title" class="text-sm font-bold text-on-surface mt-0.5">Question 1 of 20</h3>
+              </div>
+            </div>
+
+            <!-- Middle: Question Number Palette Grid -->
+            <div id="active-exam-palette" class="flex items-center gap-1.5 overflow-x-auto py-1 max-w-md">
+              <!-- Question circle buttons injected via JS -->
+            </div>
+
+            <!-- Right: Timer, Autosave status & Submit -->
+            <div class="flex items-center gap-3 shrink-0">
+              <div id="active-exam-timer-chip" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/60 text-xs font-black font-mono text-on-surface">
+                <span class="material-symbols-outlined text-sm text-primary">timer</span>
+                <span id="active-exam-timer-text">--:--</span>
+              </div>
+              <div id="active-exam-save-status" class="text-[10px] text-emerald-600 font-bold hidden sm:flex items-center gap-1">
+                <span class="material-symbols-outlined text-xs">cloud_done</span> Saved
+              </div>
+              <button onclick="confirmSubmitAssessment()" class="px-4 py-2 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-container transition-all shadow-xs">
+                Submit Test
+              </button>
+            </div>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+            <div id="active-exam-progress-bar" class="bg-primary h-full rounded-full transition-all duration-300" style="width: 5%;"></div>
+          </div>
+
+          <!-- Main Question Display Area -->
+          <div class="glass-panel p-6 md:p-8 rounded-3xl space-y-6">
+            
+            <!-- Question Metadata Header -->
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-black/5">
+              <div class="flex items-center gap-2">
+                <span id="active-q-type-badge" class="px-2.5 py-1 rounded-lg text-[10px] font-extrabold uppercase bg-secondary-fixed text-secondary">Multiple Choice</span>
+                <span id="active-q-diff-badge" class="px-2.5 py-1 rounded-lg text-[10px] font-extrabold uppercase bg-emerald-100 text-emerald-800">Intermediate</span>
+                <span id="active-q-points-badge" class="text-xs font-bold text-outline">3 Points</span>
+              </div>
+              <div id="active-q-skills-tags" class="flex items-center gap-1.5">
+                <!-- Skill tags injected -->
+              </div>
+            </div>
+
+            <!-- Question Prompt -->
+            <div class="space-y-3">
+              <h2 id="active-q-title" class="text-base font-extrabold text-on-surface">Question Title</h2>
+              <div id="active-q-prompt" class="text-xs md:text-sm text-on-surface leading-relaxed whitespace-pre-wrap font-sans">
+                <!-- Prompt text with code snippet rendered here -->
+              </div>
+            </div>
+
+            <!-- Dynamic Answer Form based on Question Type -->
+            <div id="active-q-answer-container" class="space-y-4 pt-2">
+              <!-- Rendered via JS -->
+            </div>
+
+            <!-- Footer Navigation Controls -->
+            <div class="flex items-center justify-between pt-6 border-t border-black/5">
+              <button id="btn-active-prev" onclick="navActiveQuestion(-1)" class="px-4 py-2.5 rounded-xl border border-outline-variant/60 text-xs font-bold text-on-surface hover:bg-surface-container-low transition-all flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm">arrow_back</span>
+                <span>Previous</span>
+              </button>
+              <div class="flex items-center gap-2">
+                <button id="btn-active-next" onclick="navActiveQuestion(1)" class="px-5 py-2.5 rounded-xl bg-primary text-white text-xs font-bold hover:bg-primary-container transition-all flex items-center gap-1.5 shadow-xs">
+                  <span>Next Question</span>
+                  <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- SUB-VIEW 3: DIAGNOSTIC RESULTS & WEAK SKILL REMEDIATION -->
+        <div id="assess-results-subview" class="space-y-6 hidden">
+
+          <!-- Results Summary Hero Card -->
+          <div class="glass-panel p-6 md:p-8 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="space-y-2">
+              <div class="flex items-center gap-2">
+                <span id="res-badge-status" class="px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800">Completed</span>
+                <span id="res-role-label" class="text-xs font-bold text-outline">Frontend Developer • Intermediate</span>
+              </div>
+              <h2 class="text-2xl md:text-3xl font-black text-on-surface">Assessment Diagnostic Report</h2>
+              <p class="text-xs text-on-surface-variant max-w-xl">
+                Here is your skill-by-skill breakdown, performance analytics, and tailored practice recommendations.
+              </p>
+            </div>
+
+            <!-- Score Circular / Big Digit Display -->
+            <div class="flex items-center gap-6 p-4 rounded-2xl bg-surface-container-low border border-black/5 shrink-0">
+              <div class="text-center">
+                <span class="text-[10px] uppercase font-bold text-outline">Overall Score</span>
+                <div id="res-overall-score" class="text-4xl font-black text-primary">85%</div>
+                <span id="res-tier-text" class="text-[11px] font-bold text-emerald-700 block">Proficient (Tier 1 Ready)</span>
+              </div>
+              <div class="h-12 w-px bg-black/5"></div>
+              <div class="text-center">
+                <span class="text-[10px] uppercase font-bold text-outline">Questions Solved</span>
+                <div id="res-solved-ratio" class="text-2xl font-black text-on-surface">17 / 20</div>
+                <span id="res-points-ratio" class="text-[11px] text-on-surface-variant block font-medium">51 / 60 Pts</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Recommendation Card for Weak Skills (<60%) -->
+          <div id="res-weak-skills-card" class="p-6 rounded-3xl bg-amber-50/80 border border-amber-200/80 space-y-3">
+            <div class="flex items-center gap-2 text-amber-900 font-extrabold text-sm">
+              <span class="material-symbols-outlined text-amber-700">lightbulb</span>
+              <span>Personalized Remedial Next Steps</span>
+            </div>
+            <div id="res-recommendations-list" class="space-y-2 text-xs text-amber-950">
+              <!-- Injected via JS -->
+            </div>
+            <div class="pt-2">
+              <button onclick="startWeakSkillsPracticeSession()" class="px-4 py-2 rounded-xl bg-amber-700 text-white text-xs font-bold hover:bg-amber-800 transition-all shadow-xs flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm">auto_fix_high</span>
+                <span>Practice My Weak Topics Now</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Skill-by-Skill Breakdown Grid -->
+          <div class="glass-panel p-6 rounded-3xl space-y-4">
+            <h3 class="text-sm font-bold text-on-surface flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-base">analytics</span>
+              <span>Competency Breakdown by Skill</span>
+            </h3>
+            <div id="res-skill-bars-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Skill breakdown progress bars injected -->
+            </div>
+          </div>
+
+          <!-- In-Depth Question Review (Accordion) -->
+          <div class="glass-panel p-6 rounded-3xl space-y-4">
+            <div class="flex justify-between items-center">
+              <h3 class="text-sm font-bold text-on-surface flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary text-base">fact_check</span>
+                <span>Question-by-Question Review & Explanations</span>
+              </h3>
+              <span class="text-xs text-outline font-semibold">Click any question to view solution details</span>
+            </div>
+            <div id="res-questions-review-list" class="space-y-3">
+              <!-- Accordion items injected via JS -->
+            </div>
+          </div>
+
+          <!-- Results Footer Actions -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+            <button onclick="exitResultsToSetup()" class="px-4 py-2.5 rounded-xl border border-outline-variant/60 text-xs font-bold text-on-surface hover:bg-surface-container-low transition-all flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">arrow_back</span>
+              <span>Back to Assessment Hub</span>
             </button>
-          </div>
-        </div>
-
-        <!-- Coding Challenges Section -->
-        <div class="glass-panel p-6 rounded-3xl space-y-4">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <h3 class="text-sm font-bold text-on-surface">Coding Practice & Sandboxes</h3>
-            <select id="coding-filter" onchange="filterCodingChallenges()" class="px-3 py-1.5 rounded-xl border border-outline-variant/60 text-xs font-bold text-on-surface bg-surface focus:outline-primary">
-              <option value="All">All Difficulties</option>
-              <option value="Easy">Easy</option>
-              <option value="Medium">Medium</option>
-              <option value="Hard">Hard</option>
-            </select>
+            <div class="flex items-center gap-3">
+              <button onclick="switchView('verified-profile')" class="px-4 py-2.5 rounded-xl bg-surface-container text-xs font-bold text-on-surface hover:bg-surface-container-high transition-all flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm text-primary">verified</span>
+                <span>View Updated Profile</span>
+              </button>
+              <button onclick="startNewAssessment()" class="px-5 py-2.5 rounded-xl bg-primary text-white text-xs font-extrabold hover:bg-primary-container transition-all shadow-xs flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm">refresh</span>
+                <span>Take Another Assessment</span>
+              </button>
+            </div>
           </div>
 
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs">
-              <thead class="bg-surface-container-low text-outline font-black uppercase text-[10px] border-b border-black/5">
-                <tr>
-                  <th class="py-2.5 px-3">Status</th>
-                  <th class="py-2.5 px-3">Challenge Title</th>
-                  <th class="py-2.5 px-3">Topic</th>
-                  <th class="py-2.5 px-3">Difficulty</th>
-                  <th class="py-2.5 px-3 hidden md:table-cell">Success Rate</th>
-                  <th class="py-2.5 px-3 text-right">Action</th>
-                </tr>
-              </thead>
-              <tbody id="coding-table-body"></tbody>
-            </table>
-          </div>
         </div>
+
       </section>
 
       <!-- ======================================================== -->
@@ -693,6 +1180,224 @@
             <ul id="interview-improvements" class="list-disc list-inside text-amber-800 space-y-0.5 text-[11px]"></ul>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 7: Admin Question Studio (CRUD & Bulk Import) -->
+  <div id="modal-admin-questions" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl p-6 max-w-5xl w-full shadow-2xl border border-black/5 space-y-4 max-h-[92vh] flex flex-col overflow-hidden">
+      
+      <!-- Studio Header -->
+      <div class="flex justify-between items-center pb-3 border-b border-black/5 shrink-0">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-xl bg-secondary-fixed text-secondary flex items-center justify-center">
+            <span class="material-symbols-outlined text-lg">admin_panel_settings</span>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-on-surface">Admin Question Studio</h3>
+            <p class="text-[11px] text-on-surface-variant">Manage database question bank, review drafts, and import question packs</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="switchAdminTab('library')" id="admin-tab-btn-library" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-primary text-white shadow-xs">Question Library</button>
+          <button onclick="switchAdminTab('create')" id="admin-tab-btn-create" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-container text-on-surface hover:bg-surface-container-high">Create Question</button>
+          <button onclick="switchAdminTab('import')" id="admin-tab-btn-import" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-surface-container text-on-surface hover:bg-surface-container-high">Bulk Import</button>
+          <button onclick="closeModal('modal-admin-questions')" class="p-1.5 rounded-xl text-outline hover:text-on-surface">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Studio Tab 1: Library Table -->
+      <div id="admin-view-library" class="flex-1 flex flex-col space-y-3 overflow-hidden">
+        <div class="flex flex-wrap items-center justify-between gap-2 shrink-0">
+          <div class="flex items-center gap-2">
+            <input type="text" id="admin-q-search" oninput="loadAdminQuestionsList()" placeholder="Search questions..." class="px-3 py-1.5 rounded-xl border border-outline-variant/60 text-xs bg-surface text-on-surface focus:outline-primary w-48">
+            <select id="admin-q-type-filter" onchange="loadAdminQuestionsList()" class="px-2.5 py-1.5 rounded-xl border border-outline-variant/60 text-xs bg-surface font-semibold text-on-surface">
+              <option value="all">All Types</option>
+              <option value="multiple_choice">Multiple Choice</option>
+              <option value="coding">Coding Challenge</option>
+              <option value="scenario">Scenario Debugging</option>
+              <option value="short_answer">Short Answer</option>
+              <option value="true_false">True / False</option>
+            </select>
+            <select id="admin-q-diff-filter" onchange="loadAdminQuestionsList()" class="px-2.5 py-1.5 rounded-xl border border-outline-variant/60 text-xs bg-surface font-semibold text-on-surface">
+              <option value="all">All Difficulties</option>
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+            </select>
+          </div>
+          <span id="admin-q-total-count" class="text-xs font-bold text-outline">Loading...</span>
+        </div>
+
+        <div class="flex-1 overflow-y-auto border border-black/5 rounded-2xl bg-surface-container-low">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-surface-container text-outline font-black uppercase text-[10px] sticky top-0">
+              <tr>
+                <th class="py-2.5 px-3">Title</th>
+                <th class="py-2.5 px-3">Type</th>
+                <th class="py-2.5 px-3">Difficulty</th>
+                <th class="py-2.5 px-3">Status</th>
+                <th class="py-2.5 px-3 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-questions-tbody">
+              <!-- Injected via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Studio Tab 2: Create / Edit Form -->
+      <div id="admin-view-create" class="flex-1 overflow-y-auto space-y-4 hidden pr-1">
+        <form id="form-admin-create-question" onsubmit="handleAdminCreateQuestion(event)" class="space-y-4">
+          <input type="hidden" id="admin-form-q-id">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="text-[11px] font-bold text-on-surface-variant block mb-1">Question Title</label>
+              <input type="text" id="admin-form-title" required placeholder="e.g. React Component Memoization" class="w-full px-3 py-2 rounded-xl border border-outline-variant/60 text-xs bg-surface text-on-surface focus:outline-primary font-medium">
+            </div>
+            <div>
+              <label class="text-[11px] font-bold text-on-surface-variant block mb-1">Question Type</label>
+              <select id="admin-form-type" onchange="toggleAdminFormTypeFields()" class="w-full px-3 py-2 rounded-xl border border-outline-variant/60 text-xs bg-surface text-on-surface focus:outline-primary font-bold">
+                <option value="multiple_choice">Multiple Choice (MCQ)</option>
+                <option value="multi_select">Multi-Select</option>
+                <option value="true_false">True / False</option>
+                <option value="short_answer">Short Answer</option>
+                <option value="coding">Coding Challenge</option>
+                <option value="scenario">Scenario Debugging</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div>
+              <label class="text-[11px] font-bold text-on-surface-variant block mb-1">Difficulty</label>
+              <select id="admin-form-diff" class="w-full px-3 py-2 rounded-xl border border-outline-variant/60 text-xs bg-surface text-on-surface focus:outline-primary font-bold">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate" selected>Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-[11px] font-bold text-on-surface-variant block mb-1">Status</label>
+              <select id="admin-form-status" class="w-full px-3 py-2 rounded-xl border border-outline-variant/60 text-xs bg-surface text-on-surface focus:outline-primary font-bold">
+                <option value="published" selected>Published (Live)</option>
+                <option value="draft">Draft (Admin Review)</option>
+                <option value="archived">Archived</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-[11px] font-bold text-on-surface-variant block mb-1">Primary Skill</label>
+              <select id="admin-form-skill" class="w-full px-3 py-2 rounded-xl border border-outline-variant/60 text-xs bg-surface text-on-surface focus:outline-primary font-bold">
+                <!-- Injected via JS -->
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="text-[11px] font-bold text-on-surface-variant block mb-1">Question Prompt & Code Markdown</label>
+            <textarea id="admin-form-prompt" required rows="3" placeholder="Provide problem statement, code snippets, and constraints..." class="w-full p-3 rounded-xl border border-outline-variant/60 text-xs bg-surface text-on-surface focus:outline-primary font-mono"></textarea>
+          </div>
+
+          <!-- Options Builder (for MCQ/Scenario/TF/Multi-Select) -->
+          <div id="admin-form-options-group" class="p-4 rounded-2xl bg-surface-container-low border border-black/5 space-y-3">
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-bold text-on-surface">Answer Options (Select checkbox to mark correct)</span>
+              <button type="button" onclick="addAdminOptionRow()" class="text-xs font-bold text-primary hover:underline">+ Add Option</button>
+            </div>
+            <div id="admin-form-options-list" class="space-y-2">
+              <!-- Option rows -->
+            </div>
+          </div>
+
+          <!-- Short Answer Keywords Group -->
+          <div id="admin-form-sa-group" class="p-4 rounded-2xl bg-surface-container-low border border-black/5 space-y-2 hidden">
+            <label class="text-xs font-bold text-on-surface block">Acceptable Short Answers (Comma-separated)</label>
+            <input type="text" id="admin-form-sa-answers" placeholder="e.g. 429, HTTP 429, Too Many Requests" class="w-full px-3 py-2 rounded-xl border border-outline-variant/60 text-xs bg-surface">
+          </div>
+
+          <!-- Coding Test Cases Builder -->
+          <div id="admin-form-coding-group" class="p-4 rounded-2xl bg-surface-container-low border border-black/5 space-y-3 hidden">
+            <div class="flex justify-between items-center">
+              <span class="text-xs font-bold text-on-surface">Coding Starter Code & Test Cases</span>
+            </div>
+            <div>
+              <label class="text-[11px] font-bold text-on-surface-variant block mb-1">JavaScript Starter Template:</label>
+              <textarea id="admin-form-starter-code" rows="3" placeholder="function solve(arr) { ... }" class="w-full p-3 rounded-xl border border-outline-variant/60 text-xs font-mono bg-surface"></textarea>
+            </div>
+            <div class="space-y-2">
+              <div class="flex justify-between items-center">
+                <span class="text-[11px] font-bold text-on-surface-variant">Test Cases:</span>
+                <button type="button" onclick="addAdminTestCaseRow()" class="text-xs font-bold text-primary hover:underline">+ Add Test Case</button>
+              </div>
+              <div id="admin-form-testcases-list" class="space-y-2">
+                <!-- Test case rows -->
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="text-[11px] font-bold text-on-surface-variant block mb-1">Detailed Technical Explanation</label>
+            <textarea id="admin-form-explanation" required rows="2" placeholder="Explain the underlying architectural or algorithmic concepts..." class="w-full p-3 rounded-xl border border-outline-variant/60 text-xs bg-surface text-on-surface focus:outline-primary"></textarea>
+          </div>
+
+          <div class="flex justify-end gap-2 pt-2">
+            <button type="button" onclick="switchAdminTab('library')" class="px-4 py-2 rounded-xl border border-outline-variant/60 text-xs font-bold">Cancel</button>
+            <button type="submit" class="px-6 py-2 rounded-xl bg-primary text-white text-xs font-extrabold hover:bg-primary-container shadow-xs">Save Question</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Studio Tab 3: Bulk JSON Import -->
+      <div id="admin-view-import" class="flex-1 overflow-y-auto space-y-4 hidden">
+        <div class="p-4 rounded-2xl bg-primary-fixed/20 border border-primary-fixed-dim text-xs space-y-1.5">
+          <span class="font-extrabold text-primary flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">upload_file</span>
+            <span>JSON Question Pack Importer</span>
+          </span>
+          <p class="text-on-surface-variant leading-relaxed">
+            Upload or paste an array of question JSON objects. The engine validates IDs, option correctness, and test case structures before writing to the database.
+          </p>
+        </div>
+
+        <div class="flex justify-between items-center">
+          <label class="text-xs font-bold text-on-surface">Paste JSON Payload:</label>
+          <button type="button" onclick="loadSampleJsonInAdminImport()" class="text-xs font-bold text-primary hover:underline flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">download</span> Load Sample Questions Template
+          </button>
+        </div>
+
+        <textarea id="admin-import-textarea" rows="10" placeholder="[ { 'title': '...', 'questionType': 'multiple_choice', ... } ]" class="w-full p-4 rounded-2xl border border-outline-variant/60 text-xs font-mono bg-surface leading-relaxed"></textarea>
+
+        <button onclick="executeAdminBulkImport()" class="w-full py-3 rounded-2xl bg-primary text-white text-xs font-extrabold hover:bg-primary-container shadow-xs flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-base">cloud_upload</span>
+          <span>Validate & Import Question Pack</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal 8: Past Assessment History -->
+  <div id="modal-past-assessments" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-3xl p-6 max-w-2xl w-full shadow-2xl border border-black/5 space-y-4 max-h-[85vh] flex flex-col overflow-hidden">
+      <div class="flex justify-between items-center pb-2 border-b border-black/5 shrink-0">
+        <div>
+          <h3 class="text-sm font-bold text-on-surface">My Assessment History</h3>
+          <p class="text-[11px] text-on-surface-variant">Review your historical attempts, diagnostic scores, and weak skill guidance</p>
+        </div>
+        <button onclick="closeModal('modal-past-assessments')" class="text-outline hover:text-on-surface">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <div id="past-assessments-list" class="flex-1 overflow-y-auto space-y-2.5 pr-1">
+        <!-- History cards injected via JS -->
       </div>
     </div>
   </div>

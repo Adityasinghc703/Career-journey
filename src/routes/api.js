@@ -1,10 +1,35 @@
 import express from 'express';
 import multer from 'multer';
-import { readDB, updateUser, loginUser, registerUser, googleSignIn, logoutUser } from '../services/db.js';
+import {
+  readDB,
+  updateUser,
+  loginUser,
+  registerUser,
+  googleSignIn,
+  logoutUser,
+  getRoles,
+  getRoleById,
+  getSkills,
+  getRoleSkills,
+  getQuestions,
+  getQuestionById,
+  createQuestion,
+  updateQuestion,
+  deleteQuestion,
+  bulkImportQuestions,
+  getAssessmentById,
+  getUserAssessments
+} from '../services/db.js';
 import { getAllCareers, getCareerById } from '../services/careerEngine.js';
 import { parseResumeBuffer, extractProfileFromText } from '../services/resumeParser.js';
 import { analyzeSkillGaps } from '../services/gapAnalysisEngine.js';
 import { generatePersonalRoadmap } from '../services/roadmapEngine.js';
+import {
+  generateAssessment,
+  sanitizeAssessmentForLearner,
+  saveAnswerProgress,
+  gradeAssessmentSubmission
+} from '../services/assessmentEngine.js';
 import {
   CODING_CHALLENGES_BANK,
   PROFESSION_ASSESSMENTS,
@@ -221,12 +246,150 @@ router.patch('/roadmap/task', (req, res) => {
   });
 });
 
-// 6. Assessments (Exam Hall & Question Banks)
+// 6. Dynamic Assessment & Practice Question System
+router.get('/roles', (req, res) => {
+  const roles = getRoles().map(r => ({
+    ...r,
+    skills: getRoleSkills(r.id)
+  }));
+  res.json({ success: true, roles });
+});
+
+router.get('/skills', (req, res) => {
+  res.json({ success: true, skills: getSkills() });
+});
+
+router.get('/questions', (req, res) => {
+  const { status, difficulty, questionType, skillId, search } = req.query;
+  const questions = getQuestions({ status, difficulty, questionType, skillId, search });
+  res.json({ success: true, total: questions.length, questions });
+});
+
+router.get('/questions/:id', (req, res) => {
+  const q = getQuestionById(req.params.id);
+  if (!q) return res.status(404).json({ error: "Question not found" });
+  res.json({ success: true, question: q });
+});
+
+router.post('/assessments/generate', (req, res) => {
+  try {
+    const db = readDB();
+    const userId = db.user ? db.user.id : "user_rahul_sharma";
+    const { roleId, level, mode, topicIds, totalQuestions, timeLimitMinutes } = req.body;
+
+    const assessment = generateAssessment({
+      userId,
+      roleId: roleId || "role_frontend_dev",
+      level: level || "intermediate",
+      mode: mode || "practice",
+      topicIds: topicIds || [],
+      totalQuestions: Number(totalQuestions) || 20,
+      timeLimitMinutes: timeLimitMinutes ? Number(timeLimitMinutes) : null
+    });
+
+    const sanitized = sanitizeAssessmentForLearner(assessment);
+    res.json({ success: true, assessment: sanitized });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+router.get('/assessments/:id', (req, res) => {
+  const assessment = getAssessmentById(req.params.id);
+  if (!assessment) return res.status(404).json({ error: "Assessment not found" });
+  const sanitized = sanitizeAssessmentForLearner(assessment);
+  res.json({ success: true, assessment: sanitized });
+});
+
+router.post('/assessments/:id/answers', (req, res) => {
+  try {
+    const { questionId, answer, timeSpentSeconds } = req.body;
+    const result = saveAnswerProgress(req.params.id, questionId, answer, timeSpentSeconds);
+    res.json({ success: true, result });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+router.post('/assessments/:id/submit', (req, res) => {
+  try {
+    // Check if this is legacy assessment or new dynamic assessment
+    const isDynamic = getAssessmentById(req.params.id);
+    if (isDynamic) {
+      const result = gradeAssessmentSubmission(req.params.id);
+      return res.json({ success: true, result });
+    }
+
+    // Fallback to legacy exam grading if applicable
+    const { answers } = req.body;
+    const result = gradeAssessment(req.params.id, answers);
+    res.json({ success: true, result });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+router.get('/assessments/:id/results', (req, res) => {
+  const assessment = getAssessmentById(req.params.id);
+  if (!assessment) return res.status(404).json({ error: "Assessment not found" });
+  const populated = sanitizeAssessmentForLearner(assessment);
+  res.json({ success: true, assessment: populated });
+});
+
+router.get('/users/me/assessment-history', (req, res) => {
+  const db = readDB();
+  const userId = db.user ? db.user.id : "user_rahul_sharma";
+  const history = getUserAssessments(userId);
+  res.json({ success: true, total: history.length, history });
+});
+
+// Admin Question Management CRUD & Bulk Import
+router.post('/admin/questions', (req, res) => {
+  try {
+    const newQ = createQuestion(req.body);
+    res.json({ success: true, question: newQ });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+router.put('/admin/questions/:id', (req, res) => {
+  try {
+    const updated = updateQuestion(req.params.id, req.body);
+    if (!updated) return res.status(404).json({ error: "Question not found" });
+    res.json({ success: true, question: updated });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+router.delete('/admin/questions/:id', (req, res) => {
+  try {
+    const success = deleteQuestion(req.params.id);
+    if (!success) return res.status(404).json({ error: "Question not found" });
+    res.json({ success: true, message: "Question deleted" });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+router.post('/admin/questions/import', (req, res) => {
+  try {
+    const questions = req.body.questions || req.body;
+    if (!Array.isArray(questions)) {
+      return res.status(400).json({ error: "Payload must be an array of questions or { questions: [] }" });
+    }
+    const result = bulkImportQuestions(questions);
+    res.json({ success: true, ...result });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+// Legacy assessment listing endpoint for backward compatibility
 router.get('/assessments', (req, res) => {
   const db = readDB();
   const career = getCareerById(db.user.selectedCareerId);
-  
-  // Sort assessments so the user's active career-specific assessment appears first, followed by all others
   const sorted = [...PROFESSION_ASSESSMENTS].sort((a, b) => {
     const aMatch = (a.careerTarget === career.title || a.category.toLowerCase().includes(career.category.toLowerCase())) ? 1 : 0;
     const bMatch = (b.careerTarget === career.title || b.category.toLowerCase().includes(career.category.toLowerCase())) ? 1 : 0;
@@ -242,7 +405,6 @@ router.get('/assessments', (req, res) => {
 
 router.get('/assessments/exam/:id', (req, res) => {
   const assess = PROFESSION_ASSESSMENTS.find(a => a.id === req.params.id) || PROFESSION_ASSESSMENTS[0];
-  // Strip correctIndex for secure exam taking
   const sanitized = {
     ...assess,
     questions: assess.questions.map(q => ({
@@ -252,16 +414,6 @@ router.get('/assessments/exam/:id', (req, res) => {
     }))
   };
   res.json({ success: true, exam: sanitized });
-});
-
-router.post('/assessments/:id/submit', (req, res) => {
-  try {
-    const { answers } = req.body;
-    const result = gradeAssessment(req.params.id, answers);
-    res.json({ success: true, result });
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
 });
 
 // 7. Coding Playground & Scalable Bank

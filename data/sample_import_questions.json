@@ -1,0 +1,36 @@
+[
+  {
+    "id": "q_import_sample_01",
+    "title": "SQL Indexing Strategy for High-Volume Timeseries",
+    "slug": "sql-indexing-strategy-timeseries",
+    "questionType": "multiple_choice",
+    "difficulty": "intermediate",
+    "prompt": "When querying timeseries logs partitioned by tenant_id and created_at (e.g. `WHERE tenant_id = 'acme' AND created_at >= '2026-01-01' ORDER BY created_at DESC`), which composite B-Tree index structure provides optimal index-only scanning?",
+    "explanation": "A composite index on (tenant_id, created_at DESC) allows the database to first seek directly to the tenant's slice and scan the ordered timestamps sequentially without an extra sort step.",
+    "estimatedMinutes": 2,
+    "status": "published",
+    "skills": [{ "skillId": "skill_db", "weight": 1.0 }, { "skillId": "skill_dbms", "weight": 0.8 }],
+    "options": [
+      { "id": "opt_1", "text": "Composite index on `(tenant_id, created_at DESC)`", "isCorrect": true, "explanation": "Matches the equality prefix and the range/order suffix." },
+      { "id": "opt_2", "text": "Single column index on `(created_at)` only", "isCorrect": false, "explanation": "Requires full table row lookups across all tenants." },
+      { "id": "opt_3", "text": "Hash index on `tenant_id`", "isCorrect": false, "explanation": "Hash index cannot support created_at sorting." }
+    ]
+  },
+  {
+    "id": "q_import_sample_02",
+    "title": "React Custom Hook: useLocalStorage State Sync",
+    "slug": "react-custom-hook-uselocalstorage",
+    "questionType": "scenario",
+    "difficulty": "intermediate",
+    "prompt": "When building a custom React hook `useLocalStorage(key, initialValue)`, how should window 'storage' events across browser tabs be handled so all tabs stay synchronized?",
+    "explanation": "Add an event listener to `window.addEventListener('storage', ...)` in a useEffect hook. When other tabs update localStorage, the storage event fires in current tabs, triggering a state update.",
+    "estimatedMinutes": 3,
+    "status": "published",
+    "skills": [{ "skillId": "skill_react", "weight": 1.0 }, { "skillId": "skill_browser_apis", "weight": 0.8 }],
+    "options": [
+      { "id": "opt_1", "text": "Listen to `window.addEventListener('storage', handleStorageChange)` inside a `useEffect` to capture cross-tab mutations.", "isCorrect": true },
+      { "id": "opt_2", "text": "Poll localStorage every 10 milliseconds in a while loop.", "isCorrect": false },
+      { "id": "opt_3", "text": "Storage events cannot communicate across browser tabs.", "isCorrect": false }
+    ]
+  }
+]
