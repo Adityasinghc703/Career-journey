@@ -1,0 +1,33 @@
+{
+  "projectId": "f0038fff-59ac-45b1-b6c6-e8dd35239969",
+  "type": "frontend",
+  "name": "Authentication & Student Dashboard Navigation",
+  "description": "Verifies instant demo login, session state persistence, and switching between platform view tabs.",
+  "priority": "p1",
+  "planSteps": [
+    {
+      "type": "action",
+      "description": "Open the home page and click 'Instant Demo Login (Rahul Sharma - IIIT)' button"
+    },
+    {
+      "type": "assertion",
+      "description": "Assert that the student dashboard is displayed and user name shows 'Rahul Sharma'"
+    },
+    {
+      "type": "action",
+      "description": "Click 'AI Skill Analysis' in the navigation sidebar"
+    },
+    {
+      "type": "assertion",
+      "description": "Assert that the skill gap radar and required competency metrics are visible"
+    },
+    {
+      "type": "action",
+      "description": "Click 'Personal Roadmap' in the navigation sidebar"
+    },
+    {
+      "type": "assertion",
+      "description": "Assert that weekly study hours and roadmap milestones are rendered"
+    }
+  ]
+}

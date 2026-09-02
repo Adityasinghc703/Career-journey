@@ -39,10 +39,14 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`=====================================================`);
-  console.log(`  CareerJourney AI - Backend & Platform Server`);
-  console.log(`  Running on: http://localhost:${PORT}`);
-  console.log(`  API Base:   http://localhost:${PORT}/api`);
-  console.log(`=====================================================`);
-});
+if (process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`=====================================================`);
+    console.log(`  CareerJourney AI - Backend & Platform Server`);
+    console.log(`  Running on: http://localhost:${PORT}`);
+    console.log(`  API Base:   http://localhost:${PORT}/api`);
+    console.log(`=====================================================`);
+  });
+}
+
+export default app;

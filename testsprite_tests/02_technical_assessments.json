@@ -1,0 +1,37 @@
+{
+  "projectId": "f0038fff-59ac-45b1-b6c6-e8dd35239969",
+  "type": "frontend",
+  "name": "Technical Assessment Taking & Diagnostics Flow",
+  "description": "Verifies role selection, starting dynamic technical assessment, answering questions, running sandbox test cases, and viewing diagnostic skill breakdown.",
+  "priority": "p1",
+  "planSteps": [
+    {
+      "type": "action",
+      "description": "Click 'Assessments & Practice' in the navigation sidebar"
+    },
+    {
+      "type": "assertion",
+      "description": "Assert that the 8 target role cards and experience level selector buttons are visible"
+    },
+    {
+      "type": "action",
+      "description": "Click 'Start Assessment' to launch a personalized test session"
+    },
+    {
+      "type": "assertion",
+      "description": "Assert that the Active Assessment Arena is displayed with question progress and number palette"
+    },
+    {
+      "type": "action",
+      "description": "Select an answer option for the active question and click 'Next Question'"
+    },
+    {
+      "type": "action",
+      "description": "Click 'Submit Test' and confirm submission"
+    },
+    {
+      "type": "assertion",
+      "description": "Assert that the Diagnostic Report appears with overall score percentage, skill competency bars, and question review explanations"
+    }
+  ]
+}

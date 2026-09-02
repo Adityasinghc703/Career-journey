@@ -1,0 +1,33 @@
+{
+  "projectId": "f0038fff-59ac-45b1-b6c6-e8dd35239969",
+  "type": "frontend",
+  "name": "Admin Question Studio & Bank Management",
+  "description": "Verifies opening the Admin Question Studio modal, filtering database questions, and bulk import tool interface.",
+  "priority": "p2",
+  "planSteps": [
+    {
+      "type": "action",
+      "description": "Navigate to Assessments tab and click 'Admin Question Studio' button"
+    },
+    {
+      "type": "assertion",
+      "description": "Assert that the Admin Question Studio modal opens and displays the question bank table"
+    },
+    {
+      "type": "action",
+      "description": "Click 'Bulk Import' tab inside the admin modal"
+    },
+    {
+      "type": "action",
+      "description": "Click 'Load Sample Questions Template' to populate the JSON editor"
+    },
+    {
+      "type": "assertion",
+      "description": "Assert that the JSON textarea contains valid sample questions structure"
+    },
+    {
+      "type": "action",
+      "description": "Close the Admin Question Studio modal"
+    }
+  ]
+}

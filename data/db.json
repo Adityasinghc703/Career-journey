@@ -1663,6 +1663,314 @@
           "recommendation": "Solid mastery of TypeScript. Continue practicing advanced scenarios."
         }
       ]
+    },
+    {
+      "id": "assess_1788366759828_m7vp8",
+      "userId": "test_user_1",
+      "roleId": "role_frontend_dev",
+      "roleTitle": "Frontend Developer",
+      "level": "intermediate",
+      "mode": "practice",
+      "topicIds": [],
+      "totalQuestions": 10,
+      "timeLimitMinutes": null,
+      "status": "submitted",
+      "startedAt": "2026-09-02T16:32:39.828Z",
+      "submittedAt": "2026-09-02T16:32:39.960Z",
+      "score": 68,
+      "createdAt": "2026-09-02T16:32:39.830Z",
+      "questions": [
+        {
+          "questionId": "q_mcq_03",
+          "displayOrder": 1,
+          "points": 3,
+          "answer": "opt_1",
+          "isCorrect": true,
+          "score": 3,
+          "timeSpentSeconds": 25,
+          "testResults": null
+        },
+        {
+          "questionId": "q_mcq_04",
+          "displayOrder": 2,
+          "points": 3,
+          "answer": "opt_1",
+          "isCorrect": true,
+          "score": 3,
+          "timeSpentSeconds": 0,
+          "testResults": null
+        },
+        {
+          "questionId": "q_code_09",
+          "displayOrder": 3,
+          "points": 10,
+          "answer": {
+            "code": "class LRUCache {\n  constructor(capacity) {\n    this.capacity = capacity;\n    this.map = new Map();\n  }\n\n  get(key) {\n    if (!this.map.has(key)) return -1;\n    const val = this.map.get(key);\n    this.map.delete(key);\n    this.map.set(key, val);\n    return val;\n  }\n\n  put(key, value) {\n    if (this.map.has(key)) {\n      this.map.delete(key);\n    } else if (this.map.size >= this.capacity) {\n      const oldestKey = this.map.keys().next().value;\n      this.map.delete(oldestKey);\n    }\n    this.map.set(key, value);\n  }\n}",
+            "language": "javascript"
+          },
+          "isCorrect": true,
+          "score": 10,
+          "timeSpentSeconds": 0,
+          "testResults": [
+            {
+              "testCaseIndex": 1,
+              "input": "(function(){ const c = new LRUCache(2); c.put(1, 10); c.put(2, 20); const v1 = c.get(1); c.put(3, 30); const v2 = c.get(2); return [v1, v2]; })()",
+              "expected": "[10,-1]",
+              "actual": "[10,-1]",
+              "passed": true,
+              "isHidden": false
+            },
+            {
+              "testCaseIndex": 2,
+              "input": "(function(){ const c = new LRUCache(1); c.put(5, 50); return c.get(5); })()",
+              "expected": "50",
+              "actual": "50",
+              "passed": true,
+              "isHidden": true
+            }
+          ]
+        },
+        {
+          "questionId": "q_scen_02",
+          "displayOrder": 4,
+          "points": 5,
+          "answer": "opt_1",
+          "isCorrect": true,
+          "score": 5,
+          "timeSpentSeconds": 0,
+          "testResults": null
+        },
+        {
+          "questionId": "q_code_07",
+          "displayOrder": 5,
+          "points": 10,
+          "answer": {
+            "code": "function debounce(fn, delayMs) {\n  let timerId = null;\n  return function(...args) {\n    if (timerId) clearTimeout(timerId);\n    timerId = setTimeout(() => {\n      fn.apply(this, args);\n    }, delayMs);\n  };\n}",
+            "language": "javascript"
+          },
+          "isCorrect": false,
+          "score": 0,
+          "timeSpentSeconds": 0,
+          "testResults": [
+            {
+              "testCaseIndex": 1,
+              "input": "(function(){ let x = 0; const d = debounce(() => x++, 50); d(); d(); return typeof d === 'function'; })()",
+              "expected": "true",
+              "actual": "Error: setTimeout is not defined",
+              "passed": false,
+              "isHidden": false
+            },
+            {
+              "testCaseIndex": 2,
+              "input": "(function(){ const fn = debounce((a,b) => a+b, 100); return typeof fn === 'function'; })()",
+              "expected": "true",
+              "actual": "true",
+              "passed": true,
+              "isHidden": true
+            }
+          ]
+        },
+        {
+          "questionId": "q_code_06",
+          "displayOrder": 6,
+          "points": 10,
+          "answer": {
+            "code": "function groupAnagrams(words) {\n  const map = new Map();\n  for (const word of words) {\n    const sorted = word.split('').sort().join('');\n    if (!map.has(sorted)) map.set(sorted, []);\n    map.get(sorted).push(word);\n  }\n  return Array.from(map.values()).map(g => g.sort());\n}",
+            "language": "javascript"
+          },
+          "isCorrect": false,
+          "score": 0,
+          "timeSpentSeconds": 0,
+          "testResults": [
+            {
+              "testCaseIndex": 1,
+              "input": "groupAnagrams(['eat', 'tea', 'tan', 'ate', 'nat', 'bat'])",
+              "expected": "[[\"ate\",\"eat\",\"tea\"],[\"bat\"],[\"nat\",\"tan\"]]",
+              "actual": "[[\"ate\",\"eat\",\"tea\"],[\"nat\",\"tan\"],[\"bat\"]]",
+              "passed": false,
+              "isHidden": false
+            },
+            {
+              "testCaseIndex": 2,
+              "input": "groupAnagrams(['a'])",
+              "expected": "[[\"a\"]]",
+              "actual": "[[\"a\"]]",
+              "passed": true,
+              "isHidden": false
+            },
+            {
+              "testCaseIndex": 3,
+              "input": "groupAnagrams(['rat', 'tar', 'art'])",
+              "expected": "[[\"art\",\"rat\",\"tar\"]]",
+              "actual": "[[\"art\",\"rat\",\"tar\"]]",
+              "passed": true,
+              "isHidden": true
+            }
+          ]
+        },
+        {
+          "questionId": "q_scen_04",
+          "displayOrder": 7,
+          "points": 5,
+          "answer": "opt_1",
+          "isCorrect": true,
+          "score": 5,
+          "timeSpentSeconds": 0,
+          "testResults": null
+        },
+        {
+          "questionId": "q_code_03",
+          "displayOrder": 8,
+          "points": 10,
+          "answer": {
+            "code": "function flattenObject(obj, prefix = '') {\n  const result = {};\n\n  for (const key of Object.keys(obj)) {\n    const val = obj[key];\n    const newKey = prefix ? `${prefix}.${key}` : key;\n\n    if (val !== null && typeof val === 'object' && !Array.isArray(val)) {\n      Object.assign(result, flattenObject(val, newKey));\n    } else {\n      result[newKey] = val;\n    }\n  }\n\n  return result;\n}",
+            "language": "javascript"
+          },
+          "isCorrect": true,
+          "score": 10,
+          "timeSpentSeconds": 0,
+          "testResults": [
+            {
+              "testCaseIndex": 1,
+              "input": "flattenObject({ user: { name: 'Rahul', address: { city: 'Bengaluru' } } })",
+              "expected": "{\"user.name\":\"Rahul\",\"user.address.city\":\"Bengaluru\"}",
+              "actual": "{\"user.name\":\"Rahul\",\"user.address.city\":\"Bengaluru\"}",
+              "passed": true,
+              "isHidden": false
+            },
+            {
+              "testCaseIndex": 2,
+              "input": "flattenObject({ a: 1, b: { c: 2 } })",
+              "expected": "{\"a\":1,\"b.c\":2}",
+              "actual": "{\"a\":1,\"b.c\":2}",
+              "passed": true,
+              "isHidden": false
+            },
+            {
+              "testCaseIndex": 3,
+              "input": "flattenObject({ app: { config: { db: { port: 5432 } } } })",
+              "expected": "{\"app.config.db.port\":5432}",
+              "actual": "{\"app.config.db.port\":5432}",
+              "passed": true,
+              "isHidden": true
+            }
+          ]
+        },
+        {
+          "questionId": "q_mcq_02",
+          "displayOrder": 9,
+          "points": 3,
+          "answer": "opt_1",
+          "isCorrect": true,
+          "score": 3,
+          "timeSpentSeconds": 0,
+          "testResults": null
+        },
+        {
+          "questionId": "q_mcq_12",
+          "displayOrder": 10,
+          "points": 3,
+          "answer": "opt_1",
+          "isCorrect": true,
+          "score": 3,
+          "timeSpentSeconds": 0,
+          "testResults": null
+        }
+      ],
+      "totalEarnedPoints": 42,
+      "maxPossiblePoints": 62,
+      "skillResults": [
+        {
+          "id": "sr_1788366759959_skill_db",
+          "assessmentId": "assess_1788366759828_m7vp8",
+          "skillId": "skill_db",
+          "skillName": "Databases & SQL",
+          "correctCount": 3,
+          "totalCount": 3,
+          "percentage": 100,
+          "recommendation": "Solid mastery of Databases & SQL. Continue practicing advanced scenarios."
+        },
+        {
+          "id": "sr_1788366759959_skill_dbms",
+          "assessmentId": "assess_1788366759828_m7vp8",
+          "skillId": "skill_dbms",
+          "skillName": "DBMS & Transactions",
+          "correctCount": 4,
+          "totalCount": 4,
+          "percentage": 100,
+          "recommendation": "Solid mastery of DBMS & Transactions. Continue practicing advanced scenarios."
+        },
+        {
+          "id": "sr_1788366759959_skill_dsa",
+          "assessmentId": "assess_1788366759828_m7vp8",
+          "skillId": "skill_dsa",
+          "skillName": "Data Structures & Algorithms",
+          "correctCount": 2,
+          "totalCount": 3,
+          "percentage": 67,
+          "recommendation": "Good progress on Data Structures & Algorithms (67%). Review edge cases and performance trade-offs."
+        },
+        {
+          "id": "sr_1788366759959_skill_sys_design",
+          "assessmentId": "assess_1788366759828_m7vp8",
+          "skillId": "skill_sys_design",
+          "skillName": "System Design",
+          "correctCount": 2,
+          "totalCount": 2,
+          "percentage": 100,
+          "recommendation": "Solid mastery of System Design. Continue practicing advanced scenarios."
+        },
+        {
+          "id": "sr_1788366759959_skill_js",
+          "assessmentId": "assess_1788366759828_m7vp8",
+          "skillId": "skill_js",
+          "skillName": "JavaScript",
+          "correctCount": 2,
+          "totalCount": 3,
+          "percentage": 57,
+          "recommendation": "Your JavaScript score is 57%. Focus on fundamental patterns and practice targeted problems in this area next."
+        },
+        {
+          "id": "sr_1788366759960_skill_python",
+          "assessmentId": "assess_1788366759828_m7vp8",
+          "skillId": "skill_python",
+          "skillName": "Python",
+          "correctCount": 0,
+          "totalCount": 1,
+          "percentage": 0,
+          "recommendation": "Your Python score is 0%. Focus on fundamental patterns and practice targeted problems in this area next."
+        },
+        {
+          "id": "sr_1788366759960_skill_react",
+          "assessmentId": "assess_1788366759828_m7vp8",
+          "skillId": "skill_react",
+          "skillName": "React",
+          "correctCount": 1,
+          "totalCount": 1,
+          "percentage": 100,
+          "recommendation": "Solid mastery of React. Continue practicing advanced scenarios."
+        },
+        {
+          "id": "sr_1788366759960_skill_a11y",
+          "assessmentId": "assess_1788366759828_m7vp8",
+          "skillId": "skill_a11y",
+          "skillName": "Web Accessibility (a11y)",
+          "correctCount": 1,
+          "totalCount": 1,
+          "percentage": 100,
+          "recommendation": "Solid mastery of Web Accessibility (a11y). Continue practicing advanced scenarios."
+        },
+        {
+          "id": "sr_1788366759960_skill_html",
+          "assessmentId": "assess_1788366759828_m7vp8",
+          "skillId": "skill_html",
+          "skillName": "HTML5",
+          "correctCount": 1,
+          "totalCount": 1,
+          "percentage": 100,
+          "recommendation": "Solid mastery of HTML5. Continue practicing advanced scenarios."
+        }
+      ]
     }
   ],
   "codingChallenges": [
