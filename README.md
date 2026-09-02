@@ -1,6 +1,10 @@
 # CareerJourney AI - AI Career Copilot for Students
 
+
 An intelligent, end-to-end career guidance, skill gap analysis, personalized roadmapping, and technical assessment platform designed for engineering and tech students.
+## 🚀 Live Demo
+
+👉 *[Visit CareerJourney AI](https://career-journey-beige.vercel.app)*
 
 ---
 
@@ -78,4 +82,4 @@ node test/assessment.test.js
    ```bash
    node src/server.js
    ```
-3. Open `http://localhost:3000` in your web browser.
+3. Open `https://career-journey-beige.vercel.app` in your web browser.
